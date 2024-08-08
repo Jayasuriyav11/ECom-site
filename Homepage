@@ -1,0 +1,76 @@
+import React, { useState } from 'react'
+import Navbar from './Navbar'
+import Carousel1 from './Carousel1.jsx'
+import Slide3 from './Slide3.jsx'
+import Carousel3 from './Slide4.jsx'
+import tag from './Zoomtag.jsx'
+
+import Slide2 from './Slide2'
+import './index.css'
+import Zoomtag from './Zoomtag.jsx'
+import Bottomcard from './Bottomcard.jsx'
+
+export default function HomePage() {
+
+
+    const [data, setData] = useState([
+        {
+            name: "Tees",
+            image: "/Components/tees.jpeg",
+            content: "Sports Wear"
+        },
+        {
+            name: "Shorts",
+            image: "/Components/Shorts.jpeg",
+            content: "Sports Wear"
+        },
+        {
+            name: "Jeans",
+            image: "Components/Jeans.jpeg",
+            content: "casual Wear"
+        },
+    ])
+    return (
+
+        <div className='mb-5'>
+            <div>
+
+                <Navbar />
+
+                <Carousel1 />
+                <Slide2 />
+
+            </div>
+
+            <br></br>
+            <br></br>
+            <h2>Shop and get exclusive offers</h2>
+            <div className='d-flex justify-content-between w-90 gap-4' id="niketab">
+
+                {data.map((items, index) => (
+
+                    <div key={index} className="card" style={{ width: '18rem' }}>
+                        <img src={items.image} className="card-img-top" alt="..." />
+                        <div className="card-body">
+                            <h5 className="card-title">{items.name}</h5>
+                            <p className="card-text">{items.content}</p>
+                            <a href="/About" className="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+
+                ))}
+            </div>
+            <div>
+                <Zoomtag />
+                <br></br>
+                <Slide3 />
+                <Carousel3 />
+                <Bottomcard />
+                
+                
+            </div>
+        </div>
+
+    )
+}
+
